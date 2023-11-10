@@ -9,8 +9,14 @@ import { Task } from 'src/app/types/Task';
 export class TasksItemComponent {
   @Input() task: Task | null = null;
   @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
+  @Output() onEditTask: EventEmitter<Task> = new EventEmitter();
 
   onDelete(task: Task) {
     this.onDeleteTask.emit(task);
+  }
+
+  onEdit(task: Task) {
+    task.reminder = !task.reminder;
+    this.onEditTask.emit(task);
   }
 }

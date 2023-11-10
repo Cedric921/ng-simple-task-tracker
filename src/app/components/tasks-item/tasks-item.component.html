@@ -1,4 +1,8 @@
-<div class="task">
+<div
+  [ngClass]="{ reminder: task?.reminder }"
+  class="task"
+  (dblclick)="onEdit(task!)"
+>
   <h3>
     {{ task?.text }}
     <span (click)="onDelete(task!)" [ngStyle]="{ color: 'red' }">x</span>
